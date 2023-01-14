@@ -45,7 +45,7 @@ public class ArticleController {
         // 2. Repository에게 Entity를 DB안에 저장하게 함!
         Article saved = articleRepository.save(article);
         log.info(saved.toString());
- //       System.out.println(saved.toString());
+        //       System.out.println(saved.toString());
 
         // 리다이렉트 적용: 생성 후, 브라우저가 해당 URL로 재요청
         return "redirect:/articles/" + saved.getId();
