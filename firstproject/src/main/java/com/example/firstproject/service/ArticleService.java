@@ -76,22 +76,10 @@ public class ArticleService {
         List<Article> articleList = dtos.stream()
                 .map(dto -> dto.toEntity())
                 .collect(Collectors.toList());
-        // for 문으로 했다면?
-//        List<Article> articleList = new ArrayList<>();
-//        for (int i = 0; i < dtos.size(); i++) {
-//            ArticleForm dto = dtos.get(i);
-//            Article entity = dto.toEntity();
-//            articleList.add(entity);
-//        }
 
         // entity 묶음을 DB로 저장
         articleList.stream()
                 .forEach(article -> articleRepository.save(article));
-        // for 문으로 했다면?
-//        for (int i = 0; i < articleList.size(); i++) {
-//            Article article = articleList.get(i);
-//            articleRepository.save(article);
-//        }
 
         // 강제 예외 발생
         articleRepository.findById(-1L).orElseThrow(
